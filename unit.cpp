@@ -21,4 +21,7 @@ unit::unit()
 
 unit::~unit()
 {
+	if (nextfreeable && next != 0) {
+		delete(next);
+	}
 }

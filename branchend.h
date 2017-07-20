@@ -6,5 +6,7 @@ class branchend :
 public:
 	branchend();
 	~branchend();
+	virtual void run(int point, int type);
+	virtual void error(int type);
 };
 

@@ -20,11 +20,11 @@ void judge2::run(int point, int type)
 		}
 	}
 	else {
-		error();						//应该抛出错误
+		error(-1);						//应该抛出异常
 	}
 }
 
-void judge2::error()
+void judge2::error(int type)
 {
-	next->error();
+	next->error(type);
 }

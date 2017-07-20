@@ -10,6 +10,6 @@ public:
 	int t;		//´æ´¢×Ö·û
 
 	virtual void run(int point, int type);
-	virtual void error();
+	virtual void error(int type);
 };
 

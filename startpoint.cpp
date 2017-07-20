@@ -9,4 +9,7 @@ startpoint::startpoint()
 
 startpoint::~startpoint()
 {
+	if (target != 0) {
+		delete(target);
+	}
 }
