@@ -48,7 +48,7 @@ void branchend::error(int type)
 				run(point, 2 & type);	//过滤结果不匹配的反逻辑
 			}
 			else {
-				error(1 | type);		//正逻辑
+				next->error(1 | type);	//正逻辑
 			}
 			blocked = true;
 		}
