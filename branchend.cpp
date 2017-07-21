@@ -13,10 +13,11 @@ branchend::~branchend()
 
 void branchend::run(int point, int type)
 {
-	if (counter > branches) {
+	counter++;
+	if (blocked) {
 		return;
 	}
-	counter = branches + 1;				//阻塞通道
+	blocked = true;				//阻塞通道
 	if (next) {
 		//否定逻辑
 		if (negtive) {
@@ -33,6 +34,10 @@ void branchend::run(int point, int type)
 
 void branchend::error(int type)
 {
+	counter++;
+	if (blocked) {
+		return;
+	}
 	if (type == -1) {
 		next->error(-1);				//报错
 	}
@@ -45,9 +50,7 @@ void branchend::error(int type)
 			else {
 				error(1 | type);		//正逻辑
 			}
-		}
-		else if (counter > branches) {
-			return;						//后error阻塞
+			blocked = true;
 		}
 	}
 }

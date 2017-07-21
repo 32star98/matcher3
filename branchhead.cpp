@@ -17,6 +17,7 @@ void branchhead::run(int point, int type)	//
 	if (ender) {
 		ender->counter = 0;
 		ender->point = point;
+		ender->blocked = false;
 	}
 
 	//µİ¹éÊ½´«µİ

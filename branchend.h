@@ -8,6 +8,7 @@ public:
 	int counter = 0;
 	int point;			//为否定逻辑服务
 	bool negtive;
+	bool blocked = true;		//阻塞记号
 	branchend();
 	~branchend();
 	virtual void run(int point, int type);
