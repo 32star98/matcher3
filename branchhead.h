@@ -17,6 +17,6 @@ public:
 	数量测试机制：在确定结构后由head遍历分支发出信号
 				由end确定并将结果记录（实际上需要head确认结果）
 	*******/
-	virtual void end_nums_test();		//结构内部函数
+	int end_nums_get(int base);		//结构内部函数
 };
 

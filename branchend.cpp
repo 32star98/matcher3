@@ -13,10 +13,14 @@ branchend::~branchend()
 
 void branchend::run(int point, int type)
 {
+	if (counter > branches) {
+		return;
+	}
+	counter = branches + 1;				//阻塞通道
 	if (next) {
 		//否定逻辑
 		if (negtive) {
-			next->error(1 | type);
+			next->error(1 | type);		//觉得有点奇怪
 		}
 		else{
 			next->run(point, type);
@@ -30,7 +34,7 @@ void branchend::run(int point, int type)
 void branchend::error(int type)
 {
 	if (type == -1) {
-		next->error(-1);				//异常提交
+		next->error(-1);				//报错
 	}
 	else {
 		counter++;
@@ -39,21 +43,11 @@ void branchend::error(int type)
 				run(point, 2 & type);	//过滤结果不匹配的反逻辑
 			}
 			else {
-				error(-1);
+				error(1 | type);		//正逻辑
 			}
 		}
 		else if (counter > branches) {
-			error(-1);
+			return;						//后error阻塞
 		}
-	}
-}
-
-void branchend::end_nums_test()
-{
-	if (next != 0) {
-		next->end_nums_test();			//发现部分冗余，可以由末端是否为空判断节点身份
-	}
-	if (!confirelock) {
-		branches++;
 	}
 }

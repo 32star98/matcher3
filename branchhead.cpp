@@ -64,19 +64,11 @@ void branchhead::end(branchend * ender)
 	//第二步，确定最后释放者
 	q->nextfreeable = true;
 	//第三步，为终点确定分支数量
-	end_nums_test();
-	ender->confirelock = true;
+	ender->branches = end_nums_get();
 }
 
-void branchhead::end_nums_test()
+int branchhead::end_nums_get(int base = 0)
 {
-	if (next != 0) {
-		next->end_nums_test();
-		if (extra != 0) {
-			extra->end_nums_test();
-		}
-	}
-	else {
-		///////////////////////////////////////////报错
-	}
+	return (extra == 0) ? 1 : extra->end_nums_get(base + 1);
 }
+

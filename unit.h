@@ -16,7 +16,6 @@ public:
 	virtual void error(int type) = 0;
 	void insert(unit* extra);
 	void add(unit* nex);
-	virtual void end_nums_test();	//分支数量测试，brancher构造末段使用(在branch_.h中重载)
 	unit();
 	virtual ~unit();
 };
