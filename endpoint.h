@@ -7,5 +7,8 @@ class endpoint :
 public:
 	endpoint();
 	~endpoint();
+	startpoint* head;
+	virtual void run(int point, int type);
+	virtual void error(int type);
 };
 

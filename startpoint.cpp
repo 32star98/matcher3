@@ -13,3 +13,12 @@ startpoint::~startpoint()
 		delete(target);
 	}
 }
+
+void startpoint::run(int point, int type)
+{
+	next->run(point, type);
+}
+
+void startpoint::error(int type)
+{
+}

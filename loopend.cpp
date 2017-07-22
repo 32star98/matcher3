@@ -22,6 +22,10 @@ void loopend::setloop(loophead * head, int prefer, int min, int max = 0)
 void loopend::run(int point, int type)
 {
 	counter++;
+	if (min == 0 && !prefer) {
+		next->run(from->point, type & 1);
+		return;
+	}
 	if (counter < min) {
 		from->run(point, type);
 		return;

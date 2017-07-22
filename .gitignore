@@ -1,4 +1,5 @@
 *.bat
+*.codeanalysis
 *.vcxproj
 *.filters
 *.txt

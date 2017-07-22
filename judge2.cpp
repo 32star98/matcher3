@@ -13,9 +13,13 @@ judge2::~judge2()
 
 void judge2::run(int point, int type)
 {
+	if (from == 0 && to == -1) {
+		run(point + 1, type);
+	}
 	startpoint* p = dynamic_cast<startpoint*>(sou);
 	if (p) {
-		if (p->target[point] == t) {
+		int t = p->target[point];
+		if (t >= from && t <= to) {
 			next->run(point + 1, type);
 		}
 	}
